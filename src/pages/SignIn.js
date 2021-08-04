@@ -35,8 +35,8 @@ const SignIn = () => {
           <Col xs={24} md={12} mdOffset={6}>
             <Panel>
               <div className="text-center">
-                <h2>Welcome to chat</h2>
-                <p>hi</p>
+                <h2>Welcome</h2>
+                <p>.</p>
               </div>
               <div className="mt-3">
                 <Button block color="blue" onClick={onFacebook}>
