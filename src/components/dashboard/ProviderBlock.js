@@ -25,9 +25,9 @@ const ProviderBlock = () => {
   };
   const unlink = async providerId => {
     try {
-      if (auth.currentUser.providerData.length === 1) {
-        throw new Error(`You can not disconnect from ${providerId}`);
-      }
+      // if (auth.currentUser.providerData.length === 1) {
+      //   throw new Error(`You can not disconnect from ${providerId}`);
+      // }
 
       await auth.currentUser.unlink(providerId);
       updateIsConnnected(providerId, false);
@@ -60,16 +60,26 @@ const ProviderBlock = () => {
     link(new firebase.auth.GoogleAuthProvider());
   };
 
+  const currentUserno = auth.currentUser.providerData.length;
+
   return (
     <div>
       {isConnected['facebook.com'] && (
-        <Tag color="blue" closable onClose={unLinkFacebook}>
+        <Tag
+          color="blue"
+          closable={currentUserno === 2 ? true : null}
+          onClose={unLinkFacebook}
+        >
           <Icon icon="facebook" className="mr-1" />
           Connected
         </Tag>
       )}
       {isConnected['google.com'] && (
-        <Tag color="red" closable onClose={unLinkGoogle}>
+        <Tag
+          color="red"
+          closable={currentUserno === 2 ? true : null}
+          onClose={unLinkGoogle}
+        >
           <Icon icon="google" className="mr-1" />
           Connected
         </Tag>
