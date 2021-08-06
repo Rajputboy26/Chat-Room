@@ -41,7 +41,7 @@ const DashBoard = ({ onSignOut }) => {
         <ProfilePicBtn />
       </Drawer.Body>
       <Drawer.Footer>
-        <Button block color="red" onClick={onSignOut}>
+        <Button block onClick={onSignOut}>
           Sign out
         </Button>
       </Drawer.Footer>{' '}

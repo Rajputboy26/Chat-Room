@@ -6,6 +6,7 @@ import AvatarEditor from 'react-avatar-editor';
 import { useModalState } from '../../misc/custom-hooks';
 import { database, storage } from '../../misc/firebase';
 import { useProfile } from '../../context/profile.context';
+import ProfileAvatar from '../ProfileAvatar';
 
 const fileInputTypes = '.png, .jpeg, .jpg';
 const acceptedFileType = ['image/png', 'image/jpeg', 'image/pjpeg'];
@@ -56,7 +57,7 @@ const ProfilePicBtn = () => {
       const blob = await getBlob(canvas);
 
       const avatarFileRef = storage
-        .ref(`/profile/${profile.uid}`)
+        .ref(`/profiles/${profile.uid}`)
         .child('avatar');
 
       const uploadAvatarResult = await avatarFileRef.put(blob, {
@@ -67,7 +68,7 @@ const ProfilePicBtn = () => {
       // console.log(downloadUrl);
 
       const userAvatarRef = database
-        .ref(`/profile/${profile.uid}`)
+        .ref(`/profiles/${profile.uid}`)
         .child('avatar');
 
       await userAvatarRef.set(downloadUrl);
@@ -82,12 +83,17 @@ const ProfilePicBtn = () => {
 
   return (
     <div className="mt-3 text-center">
+      <ProfileAvatar
+        src={profile.avatar}
+        name={profile.name}
+        className="width-200 height-200 img-fullsize font-huge"
+      />
       <div>
         <label
           htmlFor="avatar-upload"
           className="d-block cursor-pointer padded"
         >
-          Select new profile picture
+          Set profile picture
           <input
             id="avatar-upload"
             type="file"
