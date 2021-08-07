@@ -1,3 +1,5 @@
+/* eslint-disable arrow-body-style */
+
 export function getNameInitial(name) {
   const splitName = name.toUpperCase().split(' ');
   if (splitName.length > 1) {
@@ -5,4 +7,12 @@ export function getNameInitial(name) {
   }
 
   return splitName[0][0];
+}
+
+export function transformToWrrWithId(snapVal) {
+  return snapVal
+    ? Object.keys(snapVal).map(roomId => {
+        return { ...snapVal[roomId], if: roomId };
+      })
+    : [];
 }

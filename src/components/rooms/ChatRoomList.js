@@ -4,7 +4,6 @@ import { Nav } from 'rsuite';
 import RoomItem from './RoomItem';
 
 const ChatRoomList = ({ aboveElHeight }) => {
-  console.log(aboveElHeight);
   return (
     <Nav
       appearance="subtle"
