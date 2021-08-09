@@ -7,6 +7,7 @@ import RoomItem from './RoomItem';
 
 const ChatRoomList = ({ aboveElHeight }) => {
   const rooms = useRooms();
+
   const location = useLocation();
 
   return (
