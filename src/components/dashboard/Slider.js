@@ -1,8 +1,10 @@
+// /* eslint-disable  */
 // ye video k hissab se index.js h
 import React from 'react';
 import { Alert, Button, Divider, Drawer } from 'rsuite';
 import { useProfile } from '../../context/profile.context';
 import { database } from '../../misc/firebase';
+import { getUserUpdates } from '../../misc/helper';
 import EditableInput from '../EditableInput';
 import ProfilePicBtn from './ProfilePicBtn';
 import ProviderBlock from './ProviderBlock';
@@ -11,12 +13,15 @@ const DashBoard = ({ onSignOut }) => {
   const { profile } = useProfile();
 
   const onSave = async newNickName => {
-    const userNicknameRef = database
-      .ref(`/profiles/${profile.uid}`)
-      .child('name');
-
     try {
-      await userNicknameRef.set(newNickName);
+      const updates = await getUserUpdates(
+        profile.uid,
+        'name',
+        newNickName,
+        database
+      );
+
+      await database.ref().update(updates);
 
       Alert.success('Nickname has been updated', 4000);
     } catch (err) {
