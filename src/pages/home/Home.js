@@ -1,19 +1,15 @@
-/* eslint-disable  */
 import React from 'react';
 import { Route, Switch, useRouteMatch } from 'react-router';
-import { Button, Col, Grid, Row } from 'rsuite';
+import { Col, Grid, Row } from 'rsuite';
 import Sidebar from '../../components/Sidebar';
-import { RoomsProvider } from '../../context/rooms.context';
+import { RoomsProvider, useRooms } from '../../context/rooms.context';
 import { useMediaQuery } from '../../misc/custom-hooks';
-import { useRooms } from '../../context/rooms.context';
 import Chat from './Chat';
 
 const Home = () => {
-  const room = useRooms();
+  const rooms = useRooms();
   const isDesktop = useMediaQuery('(min-width: 992px)');
-
   const { isExact } = useRouteMatch();
-
   const canRenderSidebar = isDesktop || isExact;
 
   return (
@@ -36,7 +32,7 @@ const Home = () => {
               {isDesktop && (
                 <Col xs={24} md={16} className="h-100">
                   <h6 className="text-center mt-page">
-                    {room.length > 0 ? 'Select Room' : 'Create Room'}
+                    {rooms.length > 0 ? 'Select Room' : 'Create Room'}
                   </h6>
                 </Col>
               )}
