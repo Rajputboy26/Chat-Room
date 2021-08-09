@@ -1,6 +1,7 @@
 /* eslint-disable */
 import React from 'react';
 import TimeAgo from 'timeago-react';
+import PresenceDot from '../../PresenceDot';
 import ProfileAvatar from '../../ProfileAvatar';
 import ProfileInfoBtnModal from './ProfileInfoBtnModal';
 
@@ -10,6 +11,7 @@ const MessageItem = ({ message }) => {
   return (
     <li className="padded mb-1">
       <div className="d-flex align-item-center font-bolder mb-1">
+        <PresenceDot uid={Author.uid} />
         <ProfileAvatar
           src={Author.avatar}
           name={Author.name}
