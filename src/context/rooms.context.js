@@ -1,19 +1,18 @@
-/* eslint-disable arrow-body-style */
-import React, { createContext, useEffect, useState } from 'react';
+/* eslint-disable no-unused-vars */
+import React, { createContext, useContext, useEffect, useState } from 'react';
 import { database } from '../misc/firebase';
-import { transformToWrrWithId } from '../misc/helper';
+import { transformToArrWithId } from '../misc/helper';
 
 const RoomsContext = createContext();
 
 export const RoomsProvider = ({ children }) => {
-  // eslint-disable-next-line no-unused-vars
   const [rooms, setRooms] = useState(null);
 
   useEffect(() => {
     const roomListRef = database.ref('rooms');
 
     roomListRef.on('value', snap => {
-      const data = transformToWrrWithId(snap.val());
+      const data = transformToArrWithId(snap.val());
       setRooms(data);
     });
 
@@ -21,7 +20,10 @@ export const RoomsProvider = ({ children }) => {
       roomListRef.off();
     };
   }, []);
+
   return (
     <RoomsContext.Provider value={rooms}>{children}</RoomsContext.Provider>
   );
 };
+
+export const useRooms = () => useContext(RoomsContext);
