@@ -33,7 +33,6 @@ const Bottom = () => {
       return;
     }
     const msgData = assembleMessage(profile, chatId);
-    console.log(msgData);
     msgData.text = input;
 
     const Updates = {};
@@ -45,7 +44,6 @@ const Bottom = () => {
       ...msgData,
       msgId: messageId,
     };
-    console.log(msgData);
     setIsLoading(true);
 
     try {
