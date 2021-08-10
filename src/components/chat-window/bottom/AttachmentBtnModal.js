@@ -34,7 +34,7 @@ const AttachmentBtnModal = ({ afterUpload }) => {
       });
 
       const uploadSnapshots = await Promise.all(uploadPromises);
-
+      close();
       const shapePromises = uploadSnapshots.map(async snap => {
         return {
           contentType: snap.metadata.contentType,
@@ -48,7 +48,6 @@ const AttachmentBtnModal = ({ afterUpload }) => {
       await afterUpload(files);
 
       setIsLoading(false);
-      close();
     } catch (err) {
       setIsLoading(false);
       Alert.error(err.message);
@@ -78,7 +77,7 @@ const AttachmentBtnModal = ({ afterUpload }) => {
         </Modal.Body>
         <Modal.Footer>
           <Button block disabled={isLoading} onClick={onUpload}>
-            Send to chat
+            Send
           </Button>
           <div className="text-right mt-2">
             <small>* only files less than 5 mb are allowed</small>
