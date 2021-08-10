@@ -1,5 +1,3 @@
-/* eslint-disable no-unused-vars */
-
 import React, { useCallback, useState } from 'react';
 import { Alert, Icon, Input, InputGroup } from 'rsuite';
 
@@ -9,6 +7,7 @@ const EditableInput = ({
   label = null,
   placeholder = 'Enter name',
   emptyMsg = 'Input is empty',
+  wrapperClassName = '',
   ...inputprops
 }) => {
   const [input, setInput] = useState(initialValue);
@@ -35,7 +34,7 @@ const EditableInput = ({
   };
 
   return (
-    <div>
+    <div className={wrapperClassName}>
       {label}
       <InputGroup>
         <Input
