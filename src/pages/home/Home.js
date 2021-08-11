@@ -2,12 +2,13 @@ import React from 'react';
 import { Route, Switch, useRouteMatch } from 'react-router';
 import { Col, Grid, Row } from 'rsuite';
 import Sidebar from '../../components/Sidebar';
-import { RoomsProvider, useRooms } from '../../context/rooms.context';
+// import { RoomsProvider, useRooms } from '../../context/rooms.context';
+import { RoomsProvider } from '../../context/rooms.context';
 import { useMediaQuery } from '../../misc/custom-hooks';
 import Chat from './Chat';
 
 const Home = () => {
-  const rooms = useRooms();
+  // const rooms = useRooms();
   const isDesktop = useMediaQuery('(min-width: 992px)');
   const { isExact } = useRouteMatch();
   const canRenderSidebar = isDesktop || isExact;
@@ -32,7 +33,8 @@ const Home = () => {
               {isDesktop && (
                 <Col xs={24} md={16} className="h-100">
                   <h6 className="text-center mt-page">
-                    {rooms.length > 0 ? 'Select Room' : 'Create Room'}
+                    {/* {rooms.length > 0 ? 'Select Room' : 'Create Room'} */}
+                    Select Room
                   </h6>
                 </Col>
               )}

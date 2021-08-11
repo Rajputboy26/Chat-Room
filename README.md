@@ -1,6 +1,6 @@
-### Try Box-Office web-app by clicking on [here]
+### Try Box-Office web-app by clicking on [here](chat-app-4a93c.web.app)
 
-### or go to
+### or go to `chat-app-4a93c.web.app`
 
 ### This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
