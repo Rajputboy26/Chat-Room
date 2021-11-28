@@ -11,6 +11,15 @@ export function useModalState(defaultValue = false) {
   return { isOpen, open, close };
 }
 
+export function useModalStatenew(defaultValue = false) {
+  const [isOOpen, setIsOpen] = useState(defaultValue);
+
+  const oopen = useCallback(() => setIsOpen(true), []);
+  const cclose = useCallback(() => setIsOpen(false), []);
+
+  return { isOOpen, oopen, cclose };
+}
+
 export const useMediaQuery = query => {
   const [matches, setMatches] = useState(
     () => window.matchMedia(query).matches
