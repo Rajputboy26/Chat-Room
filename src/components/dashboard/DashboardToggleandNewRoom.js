@@ -88,7 +88,7 @@ const DashboardToggleandNewRoom = () => {
     <>
       <div className="text-center">
         <h2 className="text-blue">Chat-Room</h2>
-        <p className="text-blue">By Surya</p>
+        <p className="text-blue">By Surya Pratap</p>
         <Button className="mr-3 mt-3" color="violet" onClick={open}>
           <Icon icon="dashboard" /> Dashboard
         </Button>

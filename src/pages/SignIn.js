@@ -36,7 +36,7 @@ const SignIn = () => {
             <Panel>
               <div className="text-center">
                 <h2>Welcome to Chat-Room</h2>
-                <p>By Surya</p>
+                <p>By Surya Pratap</p>
               </div>
               <div className="mt-3">
                 <Button block color="blue" onClick={onFacebook}>

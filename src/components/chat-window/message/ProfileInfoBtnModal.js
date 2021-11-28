@@ -30,7 +30,7 @@ const ProfileInfoBtnModal = ({ profile, children, ...btnProps }) => {
             className="width-200 height-200 img-fullsize font-huge"
           />
           <h4 className="mt-2">{name}</h4>
-          <p>Member since{memberSince}</p>
+          <p>Since {memberSince}</p>
         </Modal.Body>
         <Modal.Footer>
           {children}
